@@ -7,5 +7,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 @bot.event
 async def on_ready():
     print("Logged in as {}({})".format(bot.user.name, bot.user.id))
+    bot.load_extension("cogs.example")
 
-bot.run(TOKEN)
+if __name__ == "__main__":
+    bot.run(TOKEN)

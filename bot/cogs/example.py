@@ -12,7 +12,11 @@ class Example(commands.Cog):
         self.db = sqlite3.connect(db_path)
         self.db_cursor = self.db.cursor()
         self.db_cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, discriminator TEXT)
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            discriminator TEXT
+        )
         """)
 
     @commands.command(name="whoami")

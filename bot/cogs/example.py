@@ -30,10 +30,3 @@ class Example(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Example(bot))
-        
-
-        
-
-        
-    
-

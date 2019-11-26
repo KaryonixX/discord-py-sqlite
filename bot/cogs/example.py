@@ -23,7 +23,6 @@ class Example(commands.Cog):
     async def whoami(self, ctx):
         self.db_cursor.execute("SELECT * FROM users WHERE id=?". (ctx.author.id,))
         response = self.db_cursor.fetchone()
-
         if not response:
             self.db_cursor.execute("INSERT INTO users VALUE (?,?,?)",
                 (ctx.author.id, ctx.author.name, ctx.author.discriminator,))

@@ -21,10 +21,10 @@ class Example(commands.Cog):
 
     @commands.command(name="whoami")
     async def whoami(self, ctx):
-        self.db_cursor.execute("SELECT * FROM users WHERE id=?". (ctx.author.id,))
+        self.db_cursor.execute("SELECT * FROM users WHERE id=?", (ctx.author.id,))
         response = self.db_cursor.fetchone()
         if not response:
-            self.db_cursor.execute("INSERT INTO users VALUE (?,?,?)",
+            self.db_cursor.execute("INSERT INTO users VALUES (?,?,?)",
                 (ctx.author.id, ctx.author.name, ctx.author.discriminator,))
             self.db.commit()
 
